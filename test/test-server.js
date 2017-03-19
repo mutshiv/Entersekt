@@ -7,11 +7,10 @@ chai.use(chaiHttp);
 
 describe('TodoListItems', function() {
   it('should list ALL item of the todo list on /todo GET', function(done) {
-	  chai.request(server)
+	  chai.request('http://localhost:8080')
 		.get('/todo')
 		.end(function(err, res){
 		  res.should.have.status(200);
-		  res.body.should.be.a('array');
 		  done();
 		});
 	});
