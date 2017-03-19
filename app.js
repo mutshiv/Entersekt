@@ -23,7 +23,6 @@ app.post('/todo/add/', urlencodedParser, function(req, res) {
 app.post('/todo/edit/', urlencodedParser, function(req, res){
 	if (req.body.newtext != '') {
         todolist.splice(req.body.todoid, 1, req.body.newtext);
-		console.log(todolist);
     }
     res.redirect('/todo');
 })

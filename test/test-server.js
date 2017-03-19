@@ -10,7 +10,6 @@ describe('TodoListItems LIST items', function() {
 	  chai.request('http://localhost:8080')
 		.get('/todo')
 		.end(function(err, res){
-		  console.log(res.body.h1 + " list");
 		  res.should.have.status(200);
 		  done();
 		});
@@ -22,33 +21,41 @@ describe('TodoListItems ADD', function() {
 	  chai.request('http://localhost:8080')
 		.post('/todo/add')
 		.set('content-type', 'application/x-www-form-urlencoded')
-		.send({newtodo: 'Mocha chai test index 9'})
+		.send({newtodo: 'Mocha chai test index'})
 		.end(function(err, res){
 		  console.log(res.body);
 		  res.should.have.status(200);
 		  done();
 		});
 	});
- /* it('Update selected item on the list /todo/edit/ POST', function(done) {
+});
+
+describe('TodoListItems UPDATE', function() {
+  it('Update selected item on the list /todo/edit/ POST', function(done) {
 	  chai.request('http://localhost:8080')
 		.post('/todo/edit')
 		.set('content-type', 'application/x-www-form-urlencoded')
-		.send({todoid: 0, newtext: 'Mocha chai test updated 1'})
+		.send({todoid: 5, newtext: 'Mocha chai test updated 1'})
 		.end(function(err, res){
 		  console.log(res.body);
 		  res.should.have.status(200);
 		  done();
 		});
 	});
+});
+
+describe('TodoListItems DELETE', function() {
   it('Delete selected item /todo/delete/<id> DELETE', function(done) {
 	  chai.request('http://localhost:8080')
 		.get('/todo/')
 		.end(function(err, res){
-		chai.request(server)
+		chai.request('http://localhost:8080')
 		.delete('/todo/delete/' + res.body.index)
-		  console.log(res.body.todolist);
-		  res.should.have.status(200);
+		.end(function(err, resp){
+		  console.log(resp.body.todolist);
+		  resp.should.have.status(200);
 		  done();
 		});
-	});*/
+		});
+	});
 });
