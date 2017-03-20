@@ -43,6 +43,14 @@ When clicked, it preloads the item ID and the text to be edited where the user c
 Task #2
 Run the test with mocha in the base folder.
 
+$ mocha
+
+Edit test-server.js for data to add if needed.
 
 Task #3
 The docker file has been created ready for build and deployment.
+
+Run:
+
+docker build -t my-todolist-app .
+docker run -it --rm --name 
