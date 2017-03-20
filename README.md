@@ -34,3 +34,15 @@ Visit http://localhost:8080 in your browser
 
 ### Solution
 Explain what you have done here and why...
+
+Task #1
+
+Plus (+) represents edit.
+When clicked, it preloads the item ID and the text to be edited where the user can edit.
+
+Task #2
+Run the test with mocha in the base folder.
+
+
+Task #3
+The docker file has been created ready for build and deployment.
