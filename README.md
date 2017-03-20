@@ -51,6 +51,9 @@ Task #3
 The docker file has been created ready for build and deployment.
 
 Run:
+Build the docker image
+$ docker build -t my-todolist-app .
 
-docker build -t my-todolist-app .
-docker run -it --rm --name 
+Make sure the image has been created and deployed.
+$ docker images
+$ docker run -t my-todolist-app
