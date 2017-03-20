@@ -12,7 +12,7 @@
         <h1>My todolist</h1>
         <ul>
         <% todolist.forEach(function(todo, index) { %>
-            <li><a href="/todo/delete/<%= index %>">✘</a> <%- todo %></li>
+            <li><a href="/todo/delete/<%= index %>">✘</a> <%- todo %> <a href="javascript:showUpdateFields('<%- todo %>', <%= index %>);">+</a></li>
         <% }); %>
         </ul>
 
@@ -24,14 +24,24 @@
             </p>
         </form>
 		
+		
 		 <form action="/todo/edit/" method="post">
-            <p>
-                <label for="newtext">Item Id</label>
-				<input type="number" name="todoid" id="todoid" />
+            <div id="updateFields" style="visibility:hidden">
+				<input type="hidden" name="todoid" id="todoid" />
 				<label for="newtext">Update Text</label>
                 <input type="text" name="newtext" id="newtext" />
                 <input type="submit" />
-            </p>
+			</div>
         </form>
+		
+		
+		<script>
+			function showUpdateFields(todo, index) 
+			{
+				document.getElementById("todoid").value = index;
+				document.getElementById("newtext").value = todo;
+				document.getElementById("updateFields").style.visibility = "visible";
+			}
+		</script>
     </body>
 </html>
