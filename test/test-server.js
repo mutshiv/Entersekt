@@ -23,7 +23,6 @@ describe('TodoListItems ADD', function() {
 		.set('content-type', 'application/x-www-form-urlencoded')
 		.send({newtodo: 'Mocha chai test index'})
 		.end(function(err, res){
-		  console.log(res.body);
 		  res.should.have.status(200);
 		  done();
 		});
@@ -37,7 +36,6 @@ describe('TodoListItems UPDATE', function() {
 		.set('content-type', 'application/x-www-form-urlencoded')
 		.send({todoid: 5, newtext: 'Mocha chai test updated 1'})
 		.end(function(err, res){
-		  console.log(res.body);
 		  res.should.have.status(200);
 		  done();
 		});
@@ -52,7 +50,6 @@ describe('TodoListItems DELETE', function() {
 		chai.request('http://localhost:8080')
 		.delete('/todo/delete/' + res.body.index)
 		.end(function(err, resp){
-		  console.log(resp.body.todolist);
 		  resp.should.have.status(200);
 		  done();
 		});
