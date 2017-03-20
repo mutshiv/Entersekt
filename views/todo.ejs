@@ -12,7 +12,7 @@
         <h1>My todolist</h1>
         <ul>
         <% todolist.forEach(function(todo, index) { %>
-            <li><a href="/todo/delete/<%= index %>">✘</a> <%- todo %> <a href="javascript:showUpdateFields('<%- todo %>', <%= index %>);">+</a></li>
+            <li><a href="/todo/delete/<%= index %>">✘</a> <%- todo %> &nbsp;&nbsp; <a href="javascript:showUpdateFields('<%- todo %>', <%= index %>);"><b>(+)</b></a></li>
         <% }); %>
         </ul>
 
@@ -24,17 +24,23 @@
             </p>
         </form>
 		
-		
+		<!--
+		  # Form only displays when edit has been selected for a particular item on the list
+		  # The fields are preloaded with the data of the selected it.
+		-->
 		 <form action="/todo/edit/" method="post">
             <div id="updateFields" style="visibility:hidden">
 				<input type="hidden" name="todoid" id="todoid" />
 				<label for="newtext">Update Text</label>
                 <input type="text" name="newtext" id="newtext" />
-                <input type="submit" />
+                <input type="submit" value="Update"/>
 			</div>
         </form>
 		
-		
+		<!--
+		  # Form only displays when edit has been selected for a particular item on the list
+		  # The fields are preloaded with the data of the selected it.
+		-->
 		<script>
 			function showUpdateFields(todo, index) 
 			{
